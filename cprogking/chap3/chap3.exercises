@@ -2,15 +2,40 @@ Exercise:
 
 2. Write calls of printf that display a float variable x in the following formats.
 	a) Exp not, left just, field size 8, 1 digit after decimal point
+		printf("%-8.1e");
+
 	b) Exp not, right just, field size 10, 6 digits after decimal point
+		printf("%10.6e");
+
 	c) Fixed decimal notation, left just, field size 8, 3 digits after decimal
+		printf("%-8.3f");
+
 	d) Fixed decimal notation, right just, field size 6, no digits after decimal
+		printf("6.0f");
+
+5. Suppose we call scanf:	
+	scanf("%d%f%d", &i, &x, &j);
+and the user enters: 10.3 5 6 
+What are i, x, j after the call? Assume i, j ints and x float.
+
+Answer: i = 10, x = 3, j = 5
 
 Project:
 
-1.	Write a program that accepts a date from the user in the form mm/dd/yyyy and then displays iit in the form yyyymmdd:
+1.	Write a program that accepts a date from the user in the form mm/dd/yyyy and then displays it in the form yyyymmdd:
 
 	Enter a date (mm/dd/yyyy): 2/17/2011
 	You entered the date 20110217.
 
+	(Answer: ./date.c)
 
+3. Write a program that break's down an ISBN:
+
+	Enter ISBN: 978-0-393-97950-3
+	GS1 Prefix: 978
+	Group Identifier: 0
+	Publisher Code: 393
+	Item Number: 97950
+	Check digit: 3
+
+	(Answer: ./isbn.c) 

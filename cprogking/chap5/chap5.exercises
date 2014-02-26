@@ -1,0 +1,31 @@
+2. Show the output of the programming fragments. i, j, and k are ints.
+	a)	1 CORRECT
+	b)	1 CORRECT
+	c)	1 CORRECT
+	d)	1 CORRECT
+
+4. Write a single expression whose value is either -1, 0, or +1, depending on whether i is less than, equal to, or greater than j, respectively.
+	i>j ? +1 : (i<j ? (-1) : 0) PERHAPS CORRECT BUT WAY BETTER ANSWER: (i > j) - (i < j)
+
+6. Is the following statement legal?
+	if (n == 1-10)
+		printf("n is between 1 and 10\n");
+   The statement is legal but it does not have the desired effect. It tests to see if n is exactly equal to -9, not to see if it is between 1 and 10. CORRECT
+
+10.	What output does the program fragment produce?
+	one	INCORRECT -> THE OUTPUT IS onetwo (there is no break!)
+
+
+Programming Projects
+
+2. Write a program that asks the user for a 24 hour time, then displays the time in 12 hour form (be careful not to display 12:00 as 0:00)
+	Answer in 24to12.c
+
+4. Write a program that asks the user the enter a wind speed in knots and then displays the corresponding description.
+	Answer in windspeed.c
+
+6. Modify the upc.c program in Sec 4.1 so that it checks whether the UPC is valid. After the user enters a UPC, the program will display either VALID or INVALID.
+	Answer in upc.c
+
+10. Use a switch statement to convert a numerical grade into a letter grade. Print an error if the grade is less than 0 or greater than 100.
+	Answer in grade.c

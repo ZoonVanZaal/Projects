@@ -1,0 +1,13 @@
+Exercises:
+
+2.	i, j positive ints. Is (-i)/j always the same as -(i/j)?
+	Answer: No, it depends on the implementation. In C99, (-i)/j will truncate towards 0, while in C89 it is processor dependent. If (-i)/j truncates towards 0, it will be 1 less than -(i/j), which will be positive before truncation. CORRECT
+
+9. Show output produced by the program fragments. Assume i, j, k are int variables.
+	a) 63 8		CORRECT
+	b) 3 2 1	CORRECT
+	c) 2 -1 3	CORRECT
+	d) 0 0 0	CORRECT
+
+13.	Which is exactly the same as (i += 1): ++i or i++
+		Ans:  ++i is the same as i+=1. Both increment i before returning the value of i. i++ returns the value of i first, then increments it.	CORRECT

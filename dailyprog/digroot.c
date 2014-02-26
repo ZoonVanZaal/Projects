@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Computes the digital root (sums the digits of a number, and then the digits of the sum, etc, until the sum is a single digit number)
+// Computes the digital root (sums the digits of a number, 
+// and then the digits of the sum, etc, until the sum is a single digit number)
 long digital_root(long num)
 {
 	long sum = 0; // initialize sum

@@ -1,0 +1,58 @@
+// K.N. King Chapter 6 Exercises and Practice Programs
+
+Exercises
+
+CORRECT
+4.	Which of the statements is not equivalent to the other two, assuming the loop bodies are identical?
+	a) for (i = 0; i < 10; i++) ...
+	b) for (i = 0; i < 10; ++i) ...
+	c) for (i = 0; i++ < 10; ) ... In this loop, 'i' is incremented after the second expression is evaluated, but before execution of the loop body, while in b) and c), i is incremented after the loop body.
+
+CORRECT
+10.	Show how to replace a continue statement by an equivalent goto statement.
+		while (something)
+		{
+			if(something else)
+				continue;
+
+			other stuff;
+		}
+// Is the same as
+		while (something)
+		{
+			if(something else)
+				goto loopend;
+
+			other stuff;
+
+			loopend : ;
+		}
+
+CORRECT	
+12.	The following "prime-testing" loop appeared in 6.4:
+		for (d = 2; d < n; d++)
+			if (n % d == 0)
+				break;
+	This loop is not very efficient - we really only need to test divisors up to the square root of n. Modify the loop to take advantage of this.
+
+		for(d = 2; d * d < n; d++)
+			if (n % d == 0)
+				break;
+
+14. Find the error in the following program fragment.
+		if (n % 2 == 0); // The semicolon should not be there!
+			printf("n is even\n");	
+
+Programming Projects
+
+2.	Write a program that asks for two integers and outputs their greatest common divisor (GCD)
+	Answer in gcd.c
+
+4.	Add a loop to the broker.c program of section 5.2 so that the user can enter more than one trade and the program will calculate the commission on each, terminating the process when the user enters 0.
+	Answer in broker.c
+
+6.	Write a program that prompts the user to enter a number n, then prints all even squares between 1 and n.
+	Answer in evensquares.c
+
+8.	Write a program that prints a one-month calendar. The user specifies the number of days in the month and the day of the week on which the month begins.
+	Answer in calendar.c

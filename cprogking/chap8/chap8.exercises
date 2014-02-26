@@ -32,6 +32,7 @@ Programming Projects
 	Answer in repdigit.c
 
 5. Modify the interest.c program of Section 8.1 to use the expression (int) (sizeof(a) / sizeof(a[0])) for the array length (or use a macro with this value).
+	Answer in interest.c
 
 7. Write a program that reads a 5x5 array of integers and then prints the row sums and the column sums:
 	Enter row 1: 8 3 9 0 10
@@ -43,4 +44,5 @@ Programming Projects
 	Row totals: 30 27 40 36 28
 	Column totals: 34 37 37 32 21
 
-8.	Modify Programming Project 7 so that it prompts for five quiz grades for each of five students, then cimputes the total score and average score for each student, and the average score, high score, and low score for each quiz.
+8.	Modify Programming Project 7 so that it prompts for five quiz grades for each of five students, then computes the total score and average score for each student, and the average score, high score, and low score for each quiz.
+	Answer in grades.c

@@ -1,0 +1,90 @@
+// K.N. King Chapter 9 Exercises
+
+2. Write a function check(x,y,n) that returns 1 if both x and y fall between 0 and n-1, inclusive. The function should return 0 otherwise. Assume that x, y, and n are all of type int.
+
+4. Write a function day_of_year(month, day, year) that returns the day of the year (and integer between 1 and 366) specified by the three arguments.
+
+6. Write a function digit(n, k) that returns the 'k'th digit (from the right) in n (a positive integer). For example, digit(829, 1) returns 9, digit(829, 2) returns 2, and giti(829, 3) returns 8. If k is greater than the number of digits in n, have the funtion return 0.
+
+8. Which of the following would be valid prototypes for a function that returns nothing and has one double parameter?
+	a) void f(double x); VALID
+	b) void f(double); VALID
+	c) void f(x); VALID. Defaults to double? // WRONG, MUST SPECIFY TYPE
+	d) f(double x); INVALID
+	
+10. Write function that return the following values. (Assume that a and n are parameters, where a is an array of int values and n is the length of the array.)
+	a) the largest element in a
+	b) the average of all elements in a
+	c) the number of positive elements in a
+	
+15. The following function finds the median of three numbers. Rewrite the function so that it has just one return statement.
+
+double median(double x, double y, double z)
+{
+	if (x <= y)
+		if (y <= z) return y;
+		else if (x <= z) return z;
+		else return x;
+	
+	if (z <= y) return y;
+	if (x <= z) return x;
+	return z;
+}
+
+double median(double x, double y, double z)
+{
+	int med = z;
+
+	if ((x <= y) && (y <= z))
+		med = y;
+	else if ((x <= y) && (x <= z))
+		med = z;
+	else if (x <= y)
+		med = x;
+	else if (z <= y)
+		med = y;
+	else if (x <= z)
+		med = x;
+	else 
+		med = z;
+		
+	return med;
+}
+	
+17. Rewrite the fact function so that it's no longer recursive.
+
+int fact(int n)
+{
+	int product = n;
+	
+	for (int i = 1; i < (n-1); i++)
+		product *= n - i;
+	
+	return product;
+}
+
+19. Consider the following "mystery" function.
+
+void pb(int n)
+{
+	if (n != 0)
+	{
+		pb(n / 2);
+		putchar('0' + n % 2);
+	}
+}
+
+Trace the execution of the function by hand, then try running it. What does it do?
+
+pb(6)
+	pb(3)
+		pb(1)
+			pb(0)
+		putchar('0' + 1) ==> "1"
+	putchar('0' + 1) ==> "1"
+putchar('0' + 0) ==> "0"
+
+// Output: "110", which is 6 in binary!
+	
+	
+	

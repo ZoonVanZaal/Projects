@@ -1,0 +1,17 @@
+// K.N. King Chapter 11: Pointers - Exercises
+
+2. If i is an int variable and p and q are pointers to int, which of the following assignments are legal?
+	a) p = i;		ILLEGAL - p points to the address represented by the value of i
+	b) *p = &i;		LEGAL - changes the value pointed to by p to the address of i // ILLEGAL
+	c) &p = q;		ILLEGAL - changes p's own address to the address pointed to by q
+	d) p = &q;		LEGAL? - p points to q, which is not an integer, but a pointer to an integer // ILLEGAL
+	e) p = *&q;		LEGAL - identical to p = q, p and q now point to the same address
+	f) p = q;		LEGAL - p and q now point to the same address
+	g) p = *q;		ILLEGAL - p points to the value pointed to by q
+	h) *p = q;		LEGAL - the value pointed to by p is changed to the address pointed to by q // ILLEGAL
+	i) *p = *q;		LEGAL - the value pointed to by p is changed to the value pointed to by q
+	
+4. Write the following function: void swap(int *p, int *q);		When passed the addresses of two variables, swap should exchange the values of the variables.
+	Answer in exercises11.c
+
+5. Write the following function: void find_two_largest(int a[], int n, int *largest, int *second_largest);

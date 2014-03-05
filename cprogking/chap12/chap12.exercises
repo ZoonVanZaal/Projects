@@ -1,0 +1,30 @@
+// K.N. King Chapter 12 - Pointers and Multidimensional Arrays - Exercises
+
+2. Suppose that high, low, and middle are all pointer variables of the same type, and that low and high point to elements of an array. Why is the following statement illegal, and how could it be fixed?
+	middle = (low + high) / 2;
+	
+Ans: Division is not a valid operation on pointers. Can you cast it first?
+	middle = (int *) (((int) (low + high)) / 2)
+	
+4. Rewrite make_empty, is_empty, and is_full functions of section 10.2 to use the pointer variable top_ptr instead of the integer variable top.
+
+6. Rewrite the following function to use pointer arithmetic instead of array subscripting. Make as few changes as possible.
+int sum_array(const int a[], int n)
+{
+	int i, sum;
+	for (i = 0; i < n; i++)
+		sum += a[i];
+	return sum;
+}
+
+7. Write the following function: 
+bool search(const int a[], int n, int key);
+a is an array to be searched, n is the number of elements in the array, and key is the search key. search should return true if key matches some element of a, and false if it doesn't. Use pointer arithmetic to visit array elements.
+
+13. Section 8.2 had a program fragment in which two nested for loops initialized the array ident for use as an identity matrix. Rewrite this code, using a single pointer to step through the array one element at a time.
+
+14. Assume that the following array contains a week's worth of hourly temperature readings, with each row containing the readings for one day: 
+int temperatures[7][24];
+Write a statement that uses the search function (see Exercise 7) to search the entire temperatures array for the value 32.
+
+15. Write a loop that prints all temperature readings stored in row i of the temperatures array (see Exercise 14). Use a pointer to visit each element of the row.

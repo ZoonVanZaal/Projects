@@ -1,12 +1,56 @@
-// K.N. King Chapter 12 - Pointers and Multidimensional Arrays - Exercises
+// K.N. King Chapter 12 - Pointers and Multidimensional Arrays
+
+// Exercises
 
 2. Suppose that high, low, and middle are all pointer variables of the same type, and that low and high point to elements of an array. Why is the following statement illegal, and how could it be fixed?
 	middle = (low + high) / 2;
-	
-Ans: Division is not a valid operation on pointers. Can you cast it first?
+
+/* Ans: Division is not a valid operation on pointers. Can you cast it first?
 	middle = (int *) (((int) (low + high)) / 2)
+*/ WRONG
+
+Answer: the statement is wrong because pointers themselves can't be added. 
+Corrected: middle = low + (high - low) / 2;
+Here, (high - low) is an integer, not a pointer, so it can legally be added to low.
 	
 4. Rewrite make_empty, is_empty, and is_full functions of section 10.2 to use the pointer variable top_ptr instead of the integer variable top.
+#include <stdbool.h>
+
+#define STACK_SIZE 100
+
+int contents[STACK_SIZE];
+int *top_ptr = &contents[0];
+
+void push(int i)
+{
+	if (is_full)
+		stack_overflow();
+	else
+		*top_ptr++ = i;
+}
+
+int pop(void)
+{
+	if (is_empty())
+		stack_underflow();
+	else
+		return *--top_ptr;
+}
+
+void make_empty(void)
+{
+	top_ptr = contents; // Same as top_ptr = &contents[0]   (YES)
+}
+
+bool is_empty(void)
+{
+	return top_ptr == contents;
+}
+
+bool is_full(void)
+{
+	return top_ptr == &contents[STACK_SIZE];
+}
 
 6. Rewrite the following function to use pointer arithmetic instead of array subscripting. Make as few changes as possible.
 int sum_array(const int a[], int n)
@@ -17,14 +61,63 @@ int sum_array(const int a[], int n)
 	return sum;
 }
 
+int sum_array_b(const int * a, int n)
+{
+	int sum = 0;
+	
+	for (int *p = a; p < a + n; p++)
+		sum += *p;
+		
+	return sum;
+}
+
 7. Write the following function: 
 bool search(const int a[], int n, int key);
 a is an array to be searched, n is the number of elements in the array, and key is the search key. search should return true if key matches some element of a, and false if it doesn't. Use pointer arithmetic to visit array elements.
+	Ans in exercises12.c
 
 13. Section 8.2 had a program fragment in which two nested for loops initialized the array ident for use as an identity matrix. Rewrite this code, using a single pointer to step through the array one element at a time.
+
+#define N 10
+
+double ident[N][N];
+int count = N;
+
+for (double *p = ident[0]; p < ident + N * N; p++) {
+	if (count == N) {
+		*p = 1.0;
+		count = 0;
+	}
+	else {
+		*p = 0.0;
+		count++;
+	}
+}
+	
 
 14. Assume that the following array contains a week's worth of hourly temperature readings, with each row containing the readings for one day: 
 int temperatures[7][24];
 Write a statement that uses the search function (see Exercise 7) to search the entire temperatures array for the value 32.
 
+search(temperatures[0], 7 * 24, 32);
+
 15. Write a loop that prints all temperature readings stored in row i of the temperatures array (see Exercise 14). Use a pointer to visit each element of the row.
+
+for (int *p = temperatures[i]; p < temperatures[i] + 24; p++)
+	printf("%d\n", *p);
+
+// Programming Projects
+
+1. a) Write a program that reads a message, then prints the reversal of the message.
+b) Revise the program to use a pointer instead of an integer to keep track of the current position in the array.
+
+3. Simplify 1b by taking advantage of the fact that an array name can be used as a pointer.
+
+
+
+
+
+
+
+
+

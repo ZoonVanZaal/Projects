@@ -1,0 +1,79 @@
+// K.N. King Chapter 13 - Strings
+
+Exercises
+
+2. Suppose that p has been declared as follows: char *p = "abc";  Which of the following functions calls are legal?
+	a) putchar(p);	// ILLEGAL - putchar expects a character, not a pointer to a character
+	b) putchar(*p); // LEGAL - Output: "a"
+	c) puts(p);		// LEGAL - Output: "abc"
+	d) puts(*p);	// ILLEGAL - puts expects a pointer to char, not a char
+	
+4. Modify the read_line function in each of the following ways:
+	a) Have it skip white space before beginning to store input characters
+	b) Have it stop reading at the first white-space character (may use isspace function)
+	c) Have it stop reading at the first new-line character, storing the new-line character in the string
+	d) Have it leave behind characters that it doesn't have room to store. 
+	// Answer in readline.c
+	
+6. Write a funtion named censor that modifies a string by replacing every occurence of foo by xxx. For example, the string "food fool" would become "xxxd xxxl". Makes the function as short as possible without sacrificing clarity.
+	// Answer in censor.c
+
+8. What will be the value of the string str1 after the following statements have been executed?
+	strcpy(str, "tire-bouchon");
+	strcpy(&str[4], "d-or-wi");
+	strcat(str, "red?");
+// Output: "tired-or-wired?"
+
+10. The following function supposedly creates an identical copy of a string. What's wrong with the function?
+char *duplicate(const char *p)
+{
+	char *q;
+	
+	strcpy(q, p);
+	return q;
+}
+// q is just a pointer to char and has no space allocated to accommodate a string
+
+15. Let f be the following function:
+int f(char *s, char *t)
+{
+	char *p1, *p2;
+	
+	for (p1 = s; *p1; p1++) {
+		for (p2 = t; *p2; p2++)
+			if (*p1 == *p2) break;
+		if (*p2 == '\0') break;
+	}
+	return p1 - s;
+}
+
+	a) What is the value of f("abcd", "babc")?
+		// f("abcd", "babc") = 3
+	b) What is the value of f("abcd", "bcd")?
+		// f("abcd", "bcd") = 0
+	c) What does f do in general?
+		// f returns the location of the first character in s that is not also in t
+
+16. Use the techniques of Section 13.6 to condense the count_spaces function of Section 13.4. In particular, replace the for statement by a while loop.
+
+int count_spaces(const char *s)
+{
+	int count = 0;
+	
+	for (; *s != '\0'; s++)
+		if (*s == ' ')
+			count++
+	
+	return count;
+}
+
+int count_spaces(const char *s)
+{
+	int count = 0;
+	
+	while (*s)
+		if (*(s++) == ' ') 
+			count++;
+	
+	return count;
+}

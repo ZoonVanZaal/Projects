@@ -29,8 +29,8 @@ int stdin_to_array(char * message, int n)
 {
 	int count = 0;
 	char next = getchar();
-	for (int i = 0; (next != '\n') && (i < n - 1); i++) {
-		message[i] = next;
+	for (char *p = message; (next != '\n') && (p < message + n - 1); p++) {
+		*p = next;
 		next = getchar();
 		count++;
 	}
@@ -41,7 +41,7 @@ int stdin_to_array(char * message, int n)
 /*  Prints the reverse of message. */
 void print_reverse(char * message, int n)
 {
-	for (int i = 1; i <= n; i++)
-		if (message[n-i] != '\0')
-			putchar(message[n-i]);
+	for (char *p = message + n; p >= message; p--)
+		if (*p != '\0')
+			putchar(*p);
 }
